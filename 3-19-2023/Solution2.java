@@ -1,6 +1,18 @@
 // Easy question of seeing where the middle node was.
 class Solution2 {
     public ListNode middleNode(ListNode head) {
+
+        // another way of doing it:
+        // ListNode slow=head;
+        // ListNode fast =head;
+
+        // while(fast!=null && fast.next!=null){
+        //     slow=slow.next;
+        //     fast=fast.next.next;
+        // }
+        // return slow;
+        // FOR SURE A INTERESTING WAY OF DOING IT
+
         if (head == null){
             return null;
         }
