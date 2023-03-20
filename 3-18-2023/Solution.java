@@ -1,15 +1,3 @@
-import java.util.*;
-
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
 
 // This solution works. Next time draw it out more to figure it out before 
 // thinking you know how to do it and blindly writing code out.
@@ -36,6 +24,14 @@ import java.util.*;
         }
 
         return answer.next; 
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 }
 
