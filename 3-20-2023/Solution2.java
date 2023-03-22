@@ -1,5 +1,4 @@
-// I could not figure out why my code was not working but I copied 
-// another persons solution.
+// I can't figure out why my code is not working.
 class Solution {
     public int longestPalindrome(String s) {
         int n = s.length();
