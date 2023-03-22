@@ -1,21 +1,24 @@
-// need to fix this so there is only one for loop
+// I could not figure out why my code was not working but I copied 
+// another persons solution.
 class Solution {
-    public int maxProfit(int[] prices) {
-        int min = Integer.MAX_VALUE;
-        int max = 0;
-        for (int i = 0; i <= prices.length-1; i++){
-            if (prices[i] < min){
-                min = prices[i];
+    public int longestPalindrome(String s) {
+        int n = s.length();
+        int odd = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (char i : s.toCharArray()) {
+            if (!map.containsKey(i)){
+                map.put(i, 0);
             }
-            int valRn = prices[i] - min;
-            if (valRn > max){
-                max = valRn;
+            map.put(i, map.get(i) + 1);
+        }   
+        for(int value : map.values()){
+            if (value % 2 == 1){
+                odd++;
             }
-        }
-        if (max <= 0){
-            return 0;
-        }
-        return max;
-
+            else{
+                odd--;
+            }
+        } 
+        return odd > 0? n - odd + 1: n; 
     }
 }
