@@ -1,3 +1,35 @@
+// I was able to solve the solution finally. It was not even really a hard question.
+// The only trouble I had was understanding what the question was actually asking. I thought it 
+// was asking me how I am going to get the listnode added up and in reverse order. However,
+// it just wanted to ask you how to add it together correctly.
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int sum = 0;
+        int carryOver = 0;
+        // creates a list node with a 0 at the front
+        ListNode ans = new ListNode();
+        ListNode temp = ans;
+        while(l1 != null || l2 != null || carryOver != 0){
+            sum += carryOver;
+            if (l1 != null){
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null){
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            carryOver = sum/10;
+            temp.next = new ListNode(sum % 10);
+            temp = temp.next;
+            sum = 0;
+        }
+        return ans.next;
+    }
+}
+
+
+
 // I was able to pass 2 of the 3 test cases with this solution but not all the cases.
 // class Solution {
 //     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
