@@ -1,0 +1,32 @@
+// final answer that works. It was hard to understand that I needed to use a stack at first.
+class Solution {
+    public boolean isValid(String s) {
+        if (s.length() <= 1){
+            return false;
+        }
+        Stack<Character> check = new Stack<>();
+        Map<Character, Character> references = new HashMap<>();
+        references.put(')','(');
+        references.put('}','{');
+        references.put(']','[');
+        for (char c : s.toCharArray()){
+            if (c == '(' || c == '{' || c == '['){
+                check.push(c);
+            }
+            else {
+                if (check.size() == 0){
+                    return false;
+                }
+                char removedC = check.pop();
+                char sameAsRem = references.get(c);
+                if ( removedC != sameAsRem){
+                    return false;
+                }
+            }
+        }
+        if (check.size() != 0){
+            return false;
+        }
+        return true;
+    }
+}
