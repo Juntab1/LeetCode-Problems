@@ -11,6 +11,32 @@
 //  LAST return it!
 // Then you are done!!!!!
 
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Set<List<Integer>> triple = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++){
+            int j = i + 1;
+            int k = nums.length-1;
+            while (j < k){
+                if ((nums[i] + nums[j] + nums[k]) < 0){
+                    j++;
+                }
+                else if ((nums[i] + nums[j] + nums[k]) > 0){
+                    k--;
+                }
+                else{
+                    triple.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    j++;
+                    k--;
+                }
+            }
+        }
+        ans.addAll(triple);
+        return ans;
+    }
+}
 
 // I can't figure out how to actually do this yet but it is the idea I have right now
 // However, it is not the most efficient because I have two for loops within one.
